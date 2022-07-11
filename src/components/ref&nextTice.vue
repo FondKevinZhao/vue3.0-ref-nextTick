@@ -11,7 +11,8 @@
 <script>
 // 需求：点击按钮让按钮消失，并且让光标在input框中
 /* 
-  Vue生命周期的created()钩子函数进行的DOM操作一定要放在Vue.nextTick()的回调函数中，原因是在created()钩子函数执行的时候DOM 其实并未进行任何渲染，而此时进行DOM操作无异于徒劳，所以此处一定要将DOM操作的js代码放进Vue.nextTick()的回调函数中。与之对应的就是mounted钩子函数，因为该钩子函数执行时所有的DOM挂载已完成。
+  组件的$nextTick(callback)方法，会把callback回调推迟到下一个DOM更新周期之后执行。
+  通俗的理解是：等组件的DOM异步地重新渲染完成后，再执行callback回调函数。从而能保证callback回调函数可以操作到最新的DOM元素。
 */
 export default {
   data() {
